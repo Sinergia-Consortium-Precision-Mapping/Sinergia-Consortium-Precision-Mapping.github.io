@@ -162,10 +162,10 @@
    * Clients Slider
    */
   new Swiper('.clients-slider', {
-    speed: 400,
+    speed: 600,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 600,
       disableOnInteraction: false
     },
     slidesPerView: 'auto',
@@ -236,7 +236,7 @@
    * Portfolio details slider
    */
   new Swiper('.portfolio-details-slider', {
-    speed: 400,
+    speed: 1000,
     loop: true,
     autoplay: {
       delay: 5000,
