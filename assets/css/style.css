@@ -1079,13 +1079,13 @@ section {
 }
 
 .blog .entry .entry-img {
-  max-height: 250px;
+  max-height: 200px;
   margin: -30px -30px 20px -30px;
   overflow: hidden;
 }
 
 .blog .entry .entry-title {
-  font-size: 28px;
+  font-size: 16px;
   font-weight: bold;
   padding: 0;
   margin: 0 0 20px 0;
@@ -1101,7 +1101,7 @@ section {
 }
 
 .blog .entry .entry-meta {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   color: #777777;
 }
 
@@ -1119,7 +1119,7 @@ section {
 }
 
 .blog .entry .entry-meta i {
-  font-size: 16px;
+  font-size: 12px;
   margin-right: 8px;
   line-height: 0;
 }
@@ -1132,7 +1132,7 @@ section {
 }
 
 .blog .entry .entry-content p {
-  line-height: 24px;
+  line-height: 18px;
 }
 
 .blog .entry .entry-content .read-more {
@@ -1155,40 +1155,11 @@ section {
 }
 
 .blog .entry .entry-content h3 {
-  font-size: 22px;
+  font-size: 12px;
   margin-top: 30px;
   font-weight: bold;
 }
 
-.blog .entry .entry-content blockquote {
-  overflow: hidden;
-  background-color: #fafafa;
-  padding: 60px;
-  position: relative;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.blog .entry .entry-content blockquote p {
-  color: #444444;
-  line-height: 1.6;
-  margin-bottom: 0;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 22px;
-}
-
-.blog .entry .entry-content blockquote::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background-color: #111111;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
 .blog .entry .entry-footer {
   padding-top: 10px;
@@ -1325,6 +1296,11 @@ section {
   color: #fff;
   font-size: 14px;
   background: #111111;
+   bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+	padding: 20px 0;
 }
 
 #footer .credits {
