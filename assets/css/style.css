@@ -8,7 +8,7 @@
 
 
 ** color green chuv : #0fb259
-** original template color: #e03a3c
+** original template color: #0fb259
 */
 
 /*--------------------------------------------------------------
@@ -759,7 +759,7 @@ section {
 
 .portfolio .portfolio-wrap {
   transition: 0.3s;
-  position: relative;
+ /* position: relative; */
   overflow: hidden;
   z-index: 1;
   background: rgba(17, 17, 17, 0.6);
@@ -799,9 +799,9 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
-  font-size: 20px;
+  font-size: 13px;
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
@@ -840,73 +840,6 @@ section {
 
 .portfolio .portfolio-wrap:hover .portfolio-info {
   opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-}
-
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  /*border: 1px solid #0fb259; */
-  border: 1px solid #0fb259;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  /*background-color: #0fb259;*/
-  background-color: #0fb259;
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(17, 17, 17, 0.08);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
 }
 
 
@@ -1002,6 +935,137 @@ section {
 
 
 /*--------------------------------------------------------------
+# Contact
+--------------------------------------------------------------*/
+.contact .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 30px 0 32px 0;
+  border-radius: 4px;
+}
+
+.contact .info-box i {
+  font-size: 32px;
+  color: #0fb259;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #f8d4d5;
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.contact .php-email-form {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form .form-group {
+  margin-bottom: 25px;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #111111;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type=submit] {
+  background: #0fb259;
+  border: 0;
+  padding: 10px 32px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  /*background: #e35052; */
+    background: #111111;
+  color: #fff;
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
 .blog {
@@ -1033,7 +1097,7 @@ section {
 }
 
 .blog .entry .entry-title a:hover {
-  color: #e03a3c;
+  color: #0fb259;
 }
 
 .blog .entry .entry-meta {
@@ -1078,7 +1142,7 @@ section {
 
 .blog .entry .entry-content .read-more a {
   display: inline-block;
-  background: #e03a3c;
+  background: #0fb259;
   color: #fff;
   padding: 6px 20px;
   transition: 0.3s;
@@ -1142,7 +1206,7 @@ section {
 }
 
 .blog .entry .entry-footer a:hover {
-  color: #e03a3c;
+  color: #0fb259;
 }
 
 .blog .entry .entry-footer .cats {
