@@ -1,16 +1,38 @@
 /**
  * Backend for the "Research Output" public submission page.
  * Deploy this bound to a Google Sheet with a tab named `Entries` whose
- * header row (row 1) is exactly:
- * ID | Timestamp | Category | Title | FirstAuthor | CoAuthors | Venue | Type | Status | Date | Link | SourceWP | Notes | Deleted
+ * header row (row 1) is exactly the HEADERS array below, in that order.
  *
  * Deploy > New deployment > Web app > Execute as: Me, Who has access: Anyone.
  * Copy the resulting /exec URL into assets/js/research-output.js (API_URL).
  */
 
 const SHEET_NAME = 'Entries';
-const HEADERS = ['ID', 'Timestamp', 'Category', 'Title', 'FirstAuthor', 'CoAuthors',
-                  'Venue', 'Type', 'Status', 'Date', 'Link', 'SourceWP', 'Notes', 'Deleted'];
+const HEADERS = [
+  'ID', 'Timestamp', 'Category',
+  // Generic / display columns, also used by the not-yet-specified categories
+  // (third-party funds, follow-up projects, awards).
+  'Title', 'FirstAuthor', 'CoAuthors', 'Venue', 'Type', 'Status', 'Date', 'Link',
+  // Scientific publication (peer-reviewed / not peer-reviewed).
+  'PubFormOfPublication', 'PubTitle', 'PubJournalName', 'PubPageOrArticleNumber',
+  'PubStatus', 'PubDOI', 'PubImportSource', 'PubOpenAccess', 'PubLink',
+  // Dataset.
+  'DatasetTitle', 'DatasetPID', 'DatasetRepository', 'DatasetRepositoryLink',
+  // Academic events.
+  'AcademicParticipationType', 'AcademicContributionType', 'AcademicEventTitle',
+  'AcademicArticleTitle', 'AcademicDate', 'AcademicCountry', 'AcademicPlace',
+  'AcademicPersonInvolved',
+  // Knowledge transfer events.
+  'KnowledgeParticipationType', 'KnowledgeContributionType', 'KnowledgeEventTitle',
+  'KnowledgeArticleTitle', 'KnowledgeDate', 'KnowledgeCountry', 'KnowledgePlace',
+  'KnowledgePersonInvolved', 'KnowledgeTargetGroup',
+  // Public communication.
+  'PublicType', 'PublicTitle', 'PublicRegion', 'PublicYear',
+  // Collaboration (Use-inspired outputs).
+  'CollabResearchGroup', 'CollabCountry', 'CollabType', 'CollabStarted',
+  // Shared across all categories.
+  'SourceWP', 'Notes', 'Deleted',
+];
 
 function getSheet_() {
   return SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
@@ -50,22 +72,17 @@ function doPost(e) {
 function handleAdd_(body) {
   const sheet = getSheet_();
   const id = 'RO-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
-  sheet.appendRow([
-    id,
-    new Date().toISOString(),
-    body.Category || '',
-    body.Title || '',
-    body.FirstAuthor || '',
-    body.CoAuthors || '',
-    body.Venue || '',
-    body.Type || '',
-    body.Status || '',
-    body.Date || '',
-    body.Link || '',
-    body.SourceWP || '',
-    body.Notes || '',
-    false,
-  ]);
+
+  // ID, Timestamp and Deleted are set here; every other column is taken
+  // verbatim from the submitted payload (missing keys become '').
+  const row = HEADERS.map((h) => {
+    if (h === 'ID') return id;
+    if (h === 'Timestamp') return new Date().toISOString();
+    if (h === 'Deleted') return false;
+    return body[h] || '';
+  });
+
+  sheet.appendRow(row);
   return jsonResponse_({ ok: true, id: id });
 }
 
