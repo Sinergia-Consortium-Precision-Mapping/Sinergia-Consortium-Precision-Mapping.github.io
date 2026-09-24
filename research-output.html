@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title> Sinergia Consortium - Precision Mapping</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/Logo_sinergia_proposition1.png" rel="icon">
+  <link href="assets/img/Logo_sinergia_proposition1.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Presento
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/presento-bootstrap-corporate-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+	   <a href="index.html" class="navbar-brand"><img src="assets/img/new_logo_sinergia_white.png" alt="" style="width:120px;" ></a>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="index.html#about">About</a></li>
+		   <li><a class="nav-link scrollto" href="index.html#team">Team</a></li>
+
+		  <li><a href="publications.html"> Publications </a></li>
+		  <li><a href="research-output.html" class="active"> Research Output </a></li>
+		   <li class="dropdown"><a href="index.html" ><span> Resources </span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+				<li><a href="https://sinergiaconsortium.bitbucket.io/" target="_blank"> Previous Sinergia Project</a></li>
+				<li><a href="https://sinergia-connectomics-summerschool-2021.github.io/" target="_blank"> Summer School 2021 </a></li>
+				<li><a href="resources.html" > Codes, Softwares & Datasets </a></li>
+                </ul>
+              </li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+		<h2> <br> RESEARCH OUTPUT </h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Research Output Section ======= -->
+    <section class="research-output" id="research-output">
+      <div class="container">
+
+        <p>
+          This is a community-maintained log of outputs produced across the consortium (publications, datasets,
+          presentations, software, etc.). Anyone can add an entry below. Entries can also be removed from this
+          public list at any time.
+        </p>
+
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addEntryModal">
+          <i class="bi bi-plus-lg"></i> Add Entry
+        </button>
+
+        <div id="entriesStatus" class="text-muted mb-2"></div>
+
+        <div class="table-responsive">
+          <table class="table table-striped align-middle" id="entriesTable">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>First Author</th>
+                <th>Source WP</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <tr><td colspan="5">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section><!-- End Research Output Section -->
+
+    <!-- ======= Add Entry Modal ======= -->
+    <div class="modal fade" id="addEntryModal" tabindex="-1" aria-labelledby="addEntryModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form id="addEntryForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addEntryModalLabel">Add Entry</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <div class="mb-3">
+                <label for="fieldCategory" class="form-label">Category <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                <select class="form-select" id="fieldCategory" required>
+                  <option value="" selected disabled>Select category&hellip;</option>
+                  <option value="scientific Publication (peer-reviewed)">Scienctific publications</option>
+                  <option value="scientific Publication (not peer-reviewed)">Scientific publication (not peer-reviewed)</option>
+                  <option value="dataset">Dataset</option>
+                  <option value="academic">Academic events</option>
+                  <option value="knowledge">Knowledge transfer events</option>
+                  <option value="public">Public communication</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="third-party">Third-party funds</option>
+                  <option value="follow-up">Follow-up projects</option>
+                  <option value="awards">Awards</option>
+                </select>
+              </div>
+
+              <div class="alert alert-info d-none" id="categoryDescriptionPanel" style="white-space: pre-line;"></div>
+
+              <!-- Shared Author widget: scientific publications, dataset, and not-yet-specified categories -->
+              <div class="row category-group" data-cats='["scientific Publication (peer-reviewed)","scientific Publication (not peer-reviewed)","dataset"]'>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Author <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <input type="text" class="form-control" id="fieldFirstAuthorFirst" placeholder="First name">
+                    </div>
+                    <div class="col-6">
+                      <input type="text" class="form-control" id="fieldFirstAuthorLast" placeholder="Last name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Co-authors <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div id="coAuthorsList"></div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" id="btnAddCoAuthor">
+                    <i class="bi bi-plus-lg"></i> Add co-author
+                  </button>
+                </div>
+              </div>
+
+              <!-- === Scientific publication (peer-reviewed / not peer-reviewed) === -->
+              <div class="category-group d-none" data-cats='["scientific Publication (peer-reviewed)","scientific Publication (not peer-reviewed)"]'>
+                <div class="mb-3">
+                  <label for="fieldPubForm" class="form-label">Form of publication <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldPubForm">
+                    <option value="" selected>Select form of publication&hellip;</option>
+                    <option>Original contribution to science journal</option>
+                    <option>Review article</option>
+                    <option>Book</option>
+                    <option>Contribution to a book</option>
+                    <option>Editors (anthology)</option>
+                    <option>Proceedings</option>
+                    <option>Other literature</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubTitle" class="form-label">Title <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldPubTitle">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubJournal" class="form-label">Name of journal <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldPubJournal">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubPageNum" class="form-label">First page number / article number <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldPubPageNum">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldPubStatus" class="form-label">Status <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select" id="fieldPubStatus">
+                      <option value="" selected>Select status&hellip;</option>
+                      <option>Accepted</option>
+                      <option>Published</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldPubDOI" class="form-label">DOI <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldPubDOI" placeholder="e.g. 10.1000/182">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubSource" class="form-label">Source of imported document <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldPubSource">
+                    <option value="" selected>Select source&hellip;</option>
+                    <option>Manual</option>
+                    <option>Scopus</option>
+                    <option>PubMed</option>
+                    <option>WebOfScience</option>
+                    <option>EndNote</option>
+                    <option>BibTex</option>
+                    <option>RefMan</option>
+                    <option>ORCID</option>
+                    <option>CrossRef</option>
+                    <option>OpenAire</option>
+                    <option>DataCite</option>
+                    <option>Unpaywall</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubOA" class="form-label">Open Access form <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldPubOA">
+                    <option value="" selected>Select Open Access form&hellip;</option>
+                    <option>Gold OA (Freely available via Publishers' website)</option>
+                    <option>Green OA (Freely available via Repository)</option>
+                    <option>Green OA Embargo (Freely available via Repository after an embargo)</option>
+                    <option>Closed Access (non compliant to SNSF regulations)</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPubLink" class="form-label">Link / External URL of publication <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="url" class="form-control" id="fieldPubLink" placeholder="https://...">
+                </div>
+              </div>
+
+              <!-- === Dataset === -->
+              <div class="category-group d-none" data-cats='["dataset"]'>
+                <div class="mb-3">
+                  <label for="fieldDatasetTitle" class="form-label">Title of dataset <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldDatasetTitle">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldDatasetPID" class="form-label">Persistent Identifier (PID) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldDatasetPID">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldDatasetRepo" class="form-label">Repository (name) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldDatasetRepo">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldDatasetRepoLink" class="form-label">Repository link <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="url" class="form-control" id="fieldDatasetRepoLink" placeholder="Link directly to the dataset on the data repository">
+                </div>
+              </div>
+
+              <!-- === Academic events === -->
+              <div class="category-group d-none" data-cats='["academic"]'>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAcademicParticipation" class="form-label">Type of participation <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select" id="fieldAcademicParticipation">
+                      <option value="" selected>Select&hellip;</option>
+                      <option>Active participation</option>
+                      <option>Self-organised</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAcademicContribution" class="form-label">Type of contribution <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select" id="fieldAcademicContribution">
+                      <option value="" selected>Select&hellip;</option>
+                      <option>Talk given at a conference</option>
+                      <option>Poster</option>
+                      <option>Individual talk</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldAcademicEventTitle" class="form-label">Title of event <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldAcademicEventTitle">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldAcademicArticleTitle" class="form-label">Title of article or contribution <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldAcademicArticleTitle">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAcademicDate" class="form-label">(Starting) Date of the event <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="date" class="form-control" id="fieldAcademicDate">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAcademicCountry" class="form-label">Country <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select country-select" id="fieldAcademicCountry">
+                      <option value="" selected>Select country&hellip;</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldAcademicPlace" class="form-label">Place <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldAcademicPlace">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldAcademicPerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldAcademicPerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldAcademicPerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldAcademicPerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldAcademicPerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldAcademicPerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldAcademicPerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldAcademicPerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldAcademicPerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldAcademicPerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldAcademicPerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldAcademicPerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldAcademicPerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldAcademicPerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldAcademicPerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldAcademicPerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldAcademicPerson16">David Olivier</label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- === Knowledge transfer events === -->
+              <div class="category-group d-none" data-cats='["knowledge"]'>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldKnowledgeParticipation" class="form-label">Type of participation <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select" id="fieldKnowledgeParticipation">
+                      <option value="" selected>Select&hellip;</option>
+                      <option>Active participation</option>
+                      <option>Self-organised</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldKnowledgeContribution" class="form-label">Type of contribution <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select" id="fieldKnowledgeContribution">
+                      <option value="" selected>Select&hellip;</option>
+                      <option>Talk</option>
+                      <option>Poster</option>
+                      <option>Workshop</option>
+                      <option>Performance</option>
+                      <option>exhibitions (e.g. for educational institutions)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldKnowledgeEventTitle" class="form-label">Title of event <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldKnowledgeEventTitle">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldKnowledgeArticleTitle" class="form-label">Title of article or contribution <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldKnowledgeArticleTitle">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldKnowledgeDate" class="form-label">(Starting) Date of the event <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="date" class="form-control" id="fieldKnowledgeDate">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldKnowledgeCountry" class="form-label">Country <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <select class="form-select country-select" id="fieldKnowledgeCountry">
+                      <option value="" selected>Select country&hellip;</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldKnowledgePlace" class="form-label">Place <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldKnowledgePlace">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldKnowledgePerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldKnowledgePerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldKnowledgePerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldKnowledgePerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldKnowledgePerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldKnowledgePerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldKnowledgePerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldKnowledgePerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldKnowledgePerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldKnowledgePerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldKnowledgePerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldKnowledgePerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldKnowledgePerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldKnowledgePerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldKnowledgePerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldKnowledgePerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldKnowledgePerson16">David Olivier</label>
+                      </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldKnowledgeTargetGroup" class="form-label">Target group/potential users <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldKnowledgeTargetGroup">
+                    <option value="" selected>Select&hellip;</option>
+                    <option>Industry / private companies</option>
+                    <option>Other foundations / NGOs</option>
+                    <option>Other administration / public sector</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- === Public communication === -->
+              <div class="category-group d-none" data-cats='["public"]'>
+                <div class="mb-3">
+                  <label for="fieldPublicType" class="form-label">Type of communication <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldPublicType">
+                    <option value="" selected>Select&hellip;</option>
+                    <option>Media relations: radio/television</option>
+                    <option>Media relations: print media, online media</option>
+                    <option>Talks/events/exhibitions</option>
+                    <option>New media (web, blogs, podcasts, news feeds etc.)</option>
+                    <option>Video/film</option>
+                    <option>Print (books, brochures, leaflets)</option>
+                    <option>Other activities</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPublicTitle" class="form-label">Title <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldPublicTitle">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Region / Target group <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div>
+                    <div class="form-check">
+                      <input class="form-check-input public-region" type="checkbox" id="fieldPublicRegion1" value="Western Switzerland">
+                      <label class="form-check-label" for="fieldPublicRegion1">Western Switzerland</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input public-region" type="checkbox" id="fieldPublicRegion2" value="German-speaking Switzerland">
+                      <label class="form-check-label" for="fieldPublicRegion2">German-speaking Switzerland</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input public-region" type="checkbox" id="fieldPublicRegion3" value="Italian-speaking Switzerland">
+                      <label class="form-check-label" for="fieldPublicRegion3">Italian-speaking Switzerland</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input public-region" type="checkbox" id="fieldPublicRegion4" value="Rhaeto-Romanic Switzerland">
+                      <label class="form-check-label" for="fieldPublicRegion4">Rhaeto-Romanic Switzerland</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input public-region" type="checkbox" id="fieldPublicRegion5" value="International">
+                      <label class="form-check-label" for="fieldPublicRegion5">International</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldPublicYear" class="form-label">Year of publication / Start year <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldPublicYear" placeholder="e.g. 2026">
+                </div>
+              </div>
+
+              <!-- === Collaboration (Use-inspired outputs) === -->
+              <div class="category-group d-none" data-cats='["collaboration"]'>
+                <div class="mb-3">
+                  <label for="fieldCollabGroup" class="form-label">Research group/institution <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldCollabGroup">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldCollabCountry" class="form-label">Country <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select country-select" id="fieldCollabCountry">
+                    <option value="" selected>Select country&hellip;</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Type of collaboration <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div>
+                    <div class="form-check">
+                      <input class="form-check-input collab-type" type="checkbox" id="fieldCollabType1" value="In-depth/constructive exchanges on approaches, methods or results">
+                      <label class="form-check-label" for="fieldCollabType1">In-depth/constructive exchanges on approaches, methods or results</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input collab-type" type="checkbox" id="fieldCollabType2" value="Publication">
+                      <label class="form-check-label" for="fieldCollabType2">Publication</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input collab-type" type="checkbox" id="fieldCollabType3" value="Research Infrastructures">
+                      <label class="form-check-label" for="fieldCollabType3">Research Infrastructures</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input collab-type" type="checkbox" id="fieldCollabType4" value="Exchange of personnel">
+                      <label class="form-check-label" for="fieldCollabType4">Exchange of personnel</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input collab-type" type="checkbox" id="fieldCollabType5" value="Industry/business/other use-inspired collaboration">
+                      <label class="form-check-label" for="fieldCollabType5">Industry/business/other use-inspired collaboration</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldCollabStarted" class="form-label">Collaboration started <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldCollabStarted">
+                    <option value="" selected>Select&hellip;</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- === Third-party funds === -->
+              <div class="category-group d-none" data-cats='["third-party"]'>
+                <div class="mb-3">
+                  <label for="fieldThirdPartySource" class="form-label">Source <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldThirdPartySource">
+                </div>
+                <div class="mb-3">
+                  <label for="fieldThirdPartyOrg" class="form-label">Name of organisation <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldThirdPartyOrg">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldThirdPartyAmount" class="form-label">Amount <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="number" class="form-control" id="fieldThirdPartyAmount" min="0" step="any">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldThirdPartyYear" class="form-label">Year of approval <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldThirdPartyYear" placeholder="e.g. 2026">
+                  </div>
+                </div>
+              </div>
+
+              <!-- === Follow-up projects === -->
+              <div class="category-group d-none" data-cats='["follow-up"]'>
+                <div class="mb-3">
+                  <label for="fieldFollowUpTitle" class="form-label">Title <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldFollowUpTitle">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                  <label for="fieldFollowUpStart" class="form-label">Start (year) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldFollowUpStart" placeholder="e.g. 2026">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                  <label for="fieldFollowUpDuration" class="form-label">Probable duration (months) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldFollowUpDuration">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldFollowUpFinancing" class="form-label">Main/primary financing by <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldFollowUpFinancing">
+                    <option value="" selected>Select&hellip;</option>
+                    <option>Innosuisse</option>
+                    <option>European/international research funding</option>
+                    <option>Research institutions</option>
+                    <option>Industry / private companies</option>
+                    <option>Other foundations / NGOs</option>
+                    <option>Other administration / public sector</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- === Awards === -->
+              <div class="category-group d-none" data-cats='["awards"]'>
+                <div class="mb-3">
+                  <label for="fieldAwardTitle" class="form-label">Title of award <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldAwardTitle">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAwardYear" class="form-label">Year of award <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldAwardYear" placeholder="e.g. 2026">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAwardEndowment" class="form-label">Endowment in CHF <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="number" class="form-control" id="fieldAwardEndowment" min="0" step="any">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Persons involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldAwardPerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldAwardPerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldAwardPerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldAwardPerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldAwardPerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldAwardPerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldAwardPerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldAwardPerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldAwardPerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldAwardPerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldAwardPerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldAwardPerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldAwardPerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldAwardPerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldAwardPerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldAwardPerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldAwardPerson16">David Olivier</label>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Source WP <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP1" value="WP1">
+                    <label class="form-check-label" for="fieldSourceWP1">WP1</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP2" value="WP2">
+                    <label class="form-check-label" for="fieldSourceWP2">WP2</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP3" value="WP3">
+                    <label class="form-check-label" for="fieldSourceWP3">WP3</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP4" value="WP4">
+                    <label class="form-check-label" for="fieldSourceWP4">WP4</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP5" value="WP5">
+                    <label class="form-check-label" for="fieldSourceWP5">WP5</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP6" value="WP6">
+                    <label class="form-check-label" for="fieldSourceWP6">WP6</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP7" value="WP7">
+                    <label class="form-check-label" for="fieldSourceWP7">WP7</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP8" value="WP8">
+                    <label class="form-check-label" for="fieldSourceWP8">WP8</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP9" value="WP9">
+                    <label class="form-check-label" for="fieldSourceWP9">WP9</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP10" value="WP10">
+                    <label class="form-check-label" for="fieldSourceWP10">WP10</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP11" value="WP11">
+                    <label class="form-check-label" for="fieldSourceWP11">WP11</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP12" value="WP12">
+                    <label class="form-check-label" for="fieldSourceWP12">WP12</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="fieldNotes" class="form-label">Notes <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                <textarea class="form-control" id="fieldNotes" rows="2"></textarea>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary">Add Entry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Add Entry Modal -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+	     <a href="mailto:emeline.mullier@chuv.ch">Contact</a>
+		 <br>
+        <a href="https://data.snf.ch/grants/grant/209470" target="_blank">Supported by SNF Sinergia grant 209470</a>
+        <div class="copyright">
+          &copy; Copyright <strong><span> Lausanne University Hospital</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/presento-bootstrap-corporate-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Research Output Page JS -->
+  <script src="assets/js/research-output.js"></script>
+
+</body>
+
+</html>
