@@ -99,21 +99,14 @@
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Category</th>
-                <th>Type</th>
                 <th>First Author</th>
-                <th class="d-none d-lg-table-cell">Co-authors</th>
-                <th>Venue</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>Link</th>
-                <th class="d-none d-lg-table-cell">Source WP</th>
-                <th class="d-none d-lg-table-cell">Notes</th>
+                <th>Source WP</th>
+                <th>Notes</th>
                 <th></th>
               </tr>
             </thead>
             <tbody id="entriesTableBody">
-              <tr><td colspan="12">Loading...</td></tr>
+              <tr><td colspan="5">Loading...</td></tr>
             </tbody>
           </table>
         </div>
@@ -142,17 +135,17 @@
                   <option value="academic">Academic events</option>
                   <option value="knowledge">Knowledge transfer events</option>
                   <option value="public">Public communication</option>
-                  <option value="collaboration">Use-inspired outputs</option>
+                  <option value="collaboration">Collaboration</option>
                   <option value="third-party">Third-party funds</option>
                   <option value="follow-up">Follow-up projects</option>
                   <option value="awards">Awards</option>
                 </select>
               </div>
 
-              <div class="alert alert-info d-none" id="categoryDescriptionPanel"></div>
+              <div class="alert alert-info d-none" id="categoryDescriptionPanel" style="white-space: pre-line;"></div>
 
               <!-- Shared Author widget: scientific publications, dataset, and not-yet-specified categories -->
-              <div class="row category-group" data-cats='["scientific Publication (peer-reviewed)","scientific Publication (not peer-reviewed)","dataset","third-party","follow-up","awards"]'>
+              <div class="row category-group" data-cats='["scientific Publication (peer-reviewed)","scientific Publication (not peer-reviewed)","dataset"]'>
                 <div class="col-md-6 mb-3">
                   <label class="form-label">Author <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
                   <div class="row g-2">
@@ -314,13 +307,77 @@
                   <input type="text" class="form-control" id="fieldAcademicPlace">
                 </div>
                 <div class="mb-3">
-                  <label for="fieldAcademicPerson" class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                  <select class="form-select" id="fieldAcademicPerson">
-                    <option value="" selected>Select&hellip;</option>
-                    <option>Jane Doe</option>
-                    <option>John Smith</option>
-                    <option>Alex M&uuml;ller</option>
-                  </select>
+                  <label class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldAcademicPerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldAcademicPerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldAcademicPerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldAcademicPerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldAcademicPerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldAcademicPerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldAcademicPerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldAcademicPerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldAcademicPerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldAcademicPerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldAcademicPerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldAcademicPerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldAcademicPerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldAcademicPerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldAcademicPerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldAcademicPerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-academic" type="checkbox" id="fieldAcademicPerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldAcademicPerson16">David Olivier</label>
+                      </div>
+                  </div>
                 </div>
               </div>
 
@@ -372,13 +429,77 @@
                   <input type="text" class="form-control" id="fieldKnowledgePlace">
                 </div>
                 <div class="mb-3">
-                  <label for="fieldKnowledgePerson" class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                  <select class="form-select" id="fieldKnowledgePerson">
-                    <option value="" selected>Select&hellip;</option>
-                    <option>Jane Doe</option>
-                    <option>John Smith</option>
-                    <option>Alex M&uuml;ller</option>
-                  </select>
+                  <label class="form-label">Person involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldKnowledgePerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldKnowledgePerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldKnowledgePerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldKnowledgePerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldKnowledgePerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldKnowledgePerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldKnowledgePerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldKnowledgePerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldKnowledgePerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldKnowledgePerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldKnowledgePerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldKnowledgePerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldKnowledgePerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldKnowledgePerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldKnowledgePerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldKnowledgePerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-knowledge" type="checkbox" id="fieldKnowledgePerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldKnowledgePerson16">David Olivier</label>
+                      </div>
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="fieldKnowledgeTargetGroup" class="form-label">Target group/potential users <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
@@ -488,64 +609,201 @@
                 </div>
               </div>
 
-              <!-- === Not-yet-specified categories (third-party funds, follow-up projects, awards) === -->
-              <div class="category-group d-none" data-cats='["third-party","follow-up","awards"]'>
+              <!-- === Third-party funds === -->
+              <div class="category-group d-none" data-cats='["third-party"]'>
                 <div class="mb-3">
-                  <label for="fieldTitle" class="form-label">Title / Description <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                  <input type="text" class="form-control" id="fieldTitle">
+                  <label for="fieldThirdPartySource" class="form-label">Source <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldThirdPartySource">
                 </div>
                 <div class="mb-3">
-                  <label for="fieldVenue" class="form-label">Venue / Event / Repository <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                  <input type="text" class="form-control" id="fieldVenue">
+                  <label for="fieldThirdPartyOrg" class="form-label">Name of organisation <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldThirdPartyOrg">
                 </div>
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                    <label for="fieldType" class="form-label">Type <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                    <select class="form-select" id="fieldType">
-                      <option value="" selected>Select type&hellip;</option>
-                      <option value="Paper">Paper</option>
-                      <option value="Poster">Poster</option>
-                      <option value="Talk">Talk</option>
-                    </select>
+                    <label for="fieldThirdPartyAmount" class="form-label">Amount <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="number" class="form-control" id="fieldThirdPartyAmount" min="0" step="any">
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="fieldStatus" class="form-label">Status <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                    <select class="form-select" id="fieldStatus">
-                      <option value="" selected>Select status&hellip;</option>
-                      <option value="Submitted">Submitted</option>
-                      <option value="Planned">Planned</option>
-                    </select>
+                    <label for="fieldThirdPartyYear" class="form-label">Year of approval <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldThirdPartyYear" placeholder="e.g. 2026">
                   </div>
+                </div>
+              </div>
+
+              <!-- === Follow-up projects === -->
+              <div class="category-group d-none" data-cats='["follow-up"]'>
+                <div class="mb-3">
+                  <label for="fieldFollowUpTitle" class="form-label">Title <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldFollowUpTitle">
                 </div>
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                    <label for="fieldDate" class="form-label">Date <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                    <input type="date" class="form-control" id="fieldDate">
+                  <label for="fieldFollowUpStart" class="form-label">Start (year) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldFollowUpStart" placeholder="e.g. 2026">
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="fieldLink" class="form-label">Link / DOI <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                    <input type="url" class="form-control" id="fieldLink" placeholder="https://...">
+                  <label for="fieldFollowUpDuration" class="form-label">Probable duration (months) <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldFollowUpDuration">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="fieldFollowUpFinancing" class="form-label">Main/primary financing by <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <select class="form-select" id="fieldFollowUpFinancing">
+                    <option value="" selected>Select&hellip;</option>
+                    <option>Innosuisse</option>
+                    <option>European/international research funding</option>
+                    <option>Research institutions</option>
+                    <option>Industry / private companies</option>
+                    <option>Other foundations / NGOs</option>
+                    <option>Other administration / public sector</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- === Awards === -->
+              <div class="category-group d-none" data-cats='["awards"]'>
+                <div class="mb-3">
+                  <label for="fieldAwardTitle" class="form-label">Title of award <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <input type="text" class="form-control" id="fieldAwardTitle">
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAwardYear" class="form-label">Year of award <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="text" class="form-control" id="fieldAwardYear" placeholder="e.g. 2026">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="fieldAwardEndowment" class="form-label">Endowment in CHF <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                    <input type="number" class="form-control" id="fieldAwardEndowment" min="0" step="any">
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Persons involved <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                  <div class="border rounded p-2" style="max-height:11rem;overflow-y:auto;">
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson0" value="Hagmann Patric">
+                        <label class="form-check-label" for="fieldAwardPerson0">Hagmann Patric</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson1" value="Vulliémoz Serge">
+                        <label class="form-check-label" for="fieldAwardPerson1">Vulliémoz Serge</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson2" value="Van de Ville Dimitri">
+                        <label class="form-check-label" for="fieldAwardPerson2">Van de Ville Dimitri</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson3" value="Asadi Saina">
+                        <label class="form-check-label" for="fieldAwardPerson3">Asadi Saina</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson4" value="Cionca Alexandre">
+                        <label class="form-check-label" for="fieldAwardPerson4">Cionca Alexandre</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson5" value="Herve Nino">
+                        <label class="form-check-label" for="fieldAwardPerson5">Herve Nino</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson6" value="Mullier Emeline">
+                        <label class="form-check-label" for="fieldAwardPerson6">Mullier Emeline</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson7" value="Zhang Juanli">
+                        <label class="form-check-label" for="fieldAwardPerson7">Zhang Juanli</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson8" value="Dimou Maria">
+                        <label class="form-check-label" for="fieldAwardPerson8">Dimou Maria</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson9" value="Lajous Hélène">
+                        <label class="form-check-label" for="fieldAwardPerson9">Lajous Hélène</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson10" value="Daoud Maeva">
+                        <label class="form-check-label" for="fieldAwardPerson10">Daoud Maeva</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson11" value="Chun Michael">
+                        <label class="form-check-label" for="fieldAwardPerson11">Chun Michael</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson12" value="de Wouters Louise">
+                        <label class="form-check-label" for="fieldAwardPerson12">de Wouters Louise</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson13" value="Rigoni Isotta">
+                        <label class="form-check-label" for="fieldAwardPerson13">Rigoni Isotta</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson14" value="van Mierlo Pieter">
+                        <label class="form-check-label" for="fieldAwardPerson14">van Mierlo Pieter</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson15" value="Jelescu Ileana">
+                        <label class="form-check-label" for="fieldAwardPerson15">Jelescu Ileana</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input person-award" type="checkbox" id="fieldAwardPerson16" value="David Olivier">
+                        <label class="form-check-label" for="fieldAwardPerson16">David Olivier</label>
+                      </div>
                   </div>
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="fieldSourceWP" class="form-label">Source WP <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
-                <select class="form-select" id="fieldSourceWP">
-                  <option value="" selected>Select WP&hellip;</option>
-                  <option value="WP1">WP1</option>
-                  <option value="WP2">WP2</option>
-                  <option value="WP3">WP3</option>
-                  <option value="WP4">WP4</option>
-                  <option value="WP5">WP5</option>
-                  <option value="WP6">WP6</option>
-                  <option value="WP7">WP7</option>
-                  <option value="WP8">WP8</option>
-                  <option value="WP9">WP9</option>
-                  <option value="WP10">WP10</option>
-                  <option value="WP11">WP11</option>
-                  <option value="WP12">WP12</option>
-                </select>
+                <label class="form-label">Source WP <i class="bi bi-question-circle text-muted field-tooltip" data-bs-toggle="tooltip" title="tooltip description"></i></label>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP1" value="WP1">
+                    <label class="form-check-label" for="fieldSourceWP1">WP1</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP2" value="WP2">
+                    <label class="form-check-label" for="fieldSourceWP2">WP2</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP3" value="WP3">
+                    <label class="form-check-label" for="fieldSourceWP3">WP3</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP4" value="WP4">
+                    <label class="form-check-label" for="fieldSourceWP4">WP4</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP5" value="WP5">
+                    <label class="form-check-label" for="fieldSourceWP5">WP5</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP6" value="WP6">
+                    <label class="form-check-label" for="fieldSourceWP6">WP6</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP7" value="WP7">
+                    <label class="form-check-label" for="fieldSourceWP7">WP7</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP8" value="WP8">
+                    <label class="form-check-label" for="fieldSourceWP8">WP8</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP9" value="WP9">
+                    <label class="form-check-label" for="fieldSourceWP9">WP9</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP10" value="WP10">
+                    <label class="form-check-label" for="fieldSourceWP10">WP10</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP11" value="WP11">
+                    <label class="form-check-label" for="fieldSourceWP11">WP11</label>
+                  </div>
+                  <div class="form-check" style="min-width:5.5rem;">
+                    <input class="form-check-input source-wp" type="checkbox" id="fieldSourceWP12" value="WP12">
+                    <label class="form-check-label" for="fieldSourceWP12">WP12</label>
+                  </div>
+                </div>
               </div>
 
               <div class="mb-3">

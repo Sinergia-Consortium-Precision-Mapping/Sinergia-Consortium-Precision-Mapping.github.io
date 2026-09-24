@@ -9,7 +9,7 @@
 (function () {
   "use strict";
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbxLC48dlOqJqh051V3tdjl7Ho2faDl3KrDcmi6CdiBeXOeuQy-VDpOYokr4N788FGBcQg/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbwdhOeYtxSrMbEDYCNf1ZDByjzV7phV5Sm_sJ1GMG9YuUn6SVj3QGK6X1dk3A6MkP0y/exec";
 
   const CATEGORY = {
     SCI_PR: "scientific Publication (peer-reviewed)",
@@ -19,14 +19,44 @@
     KNOWLEDGE: "knowledge",
     PUBLIC: "public",
     COLLAB: "collaboration",
+    THIRD_PARTY: "third-party",
+    FOLLOW_UP: "follow-up",
+    AWARDS: "awards",
   };
 
-  // Filled in once real category descriptions are provided; a category with no
-  // entry here simply shows no description panel.
-  const CATEGORY_DESCRIPTIONS = {};
+  // Real descriptions per category value; categories without an entry fall back
+  // to placeholder copy.
+  const CATEGORY_DESCRIPTIONS = {
+    [CATEGORY.SCI_PR]:
+      "Here you can indicate publications produced within the scope of the project. Only scientific publications that have been published or accepted for publication and which mention the support received from the SNSF should be entered here. You can add planned publications later - even after the end of the project. Furthermore, you have the option to indicate significant planned output in the scientific report. Publications that address a wider public can be entered under \"Public communication\".",
+    [CATEGORY.SCI_NPR]:
+      "Here you can indicate publications produced within the scope of the project that have not undergone peer review (e.g. preprints, working papers, technical reports, theses). Only scientific publications that have been published or made publicly available and which mention the support received from the SNSF should be entered here. You can add planned publications later - even after the end of the project. Furthermore, you have the option to indicate significant planned output in the scientific report. Publications that address a wider public can be entered under \"Public communication\".",
+    [CATEGORY.DATASET]:
+      "Here you can indicate datasets created in the project. Datasets that will be made available in a repository later can be added at any time, even after the project has ended. Furthermore, you have the option to indicate significant planned output in the scientific report.",
+    [CATEGORY.ACADEMIC]:
+      "Here you can mention the scientific events you organised yourself or in which you or a collaborator in your project actively participated within the scope of the project (contribution in the form of a lecture or a poster). Only events aimed at scientific experts should be entered in this data container.\nKnowledge transfer events or events for a wider public can be mentioned under \"Knowledge transfer events\" (e.g. events for potential users) and \"Public communication\" (e.g. Ausstellungen, TV appearances).",
+    [CATEGORY.KNOWLEDGE]:
+      "Here you can mention the knowledge transfer events you have (or someone employed in your project has) organised or attended within the scope of the project. Only events aimed at transferring knowledge to non-scientific experts should be entered in this data container.\n\nIf your event serves the dual purpose of communicating with the public and transferring knowledge to potential direct or indirect users, you can mention it in both categories. Events aimed at scientific experts should be entered under \"Academic events\".",
+    [CATEGORY.PUBLIC]:
+      "Here you can enter communication activities within the scope of the project that were not aimed primarily at scientific experts, but at a wider public. Websites with further information on this communication activity can also be indicated here. In addition, please indicate the type of activity under \"Other activities\" in the title.\n\nIf your event serves the dual purpose of communicating with the public and transferring knowledge to potential direct or indirect users, you can mention it in both categories.\n\nFor articles with (almost) identical content that are published simultaneously in more than one print media, you may generate more than one entry. Web articles that are published in different languages on the same multilingual website should only be entered once.",
+    [CATEGORY.COLLAB]:
+      "Here you can indicate the national and international collaborations that were of particular importance for the project.\nProject partners who have already been entered should not be indicated here.\nPlease make a separate entry for the different research groups with whom you work.",
+    [CATEGORY.THIRD_PARTY]:
+      "Please indicate here whether the SNSF grant helped you to acquire additional third-party funds for the research project. If your project was financed by other third-party funds, please enter the key data of this additional financing.",
+    [CATEGORY.FOLLOW_UP]:
+      "Here you can indicate whether any follow-up projects (excluding projects funded by the SNSF) have been implemented based on the results of the SNSF project.",
+    [CATEGORY.AWARDS]:
+      "Please indicate here whether any of the persons employed in the project has received an award in the context of the research work carried out (prizes, honourary titles, fellowships or other marks of distinction)",
+  };
+
+  function categoryDescription(category, categoryName) {
+    return (
+      CATEGORY_DESCRIPTIONS[category] ||
+      `here comes the beautifull description for ${categoryName}`
+    );
+  }
 
   // The field that must be filled in for each category before submitting.
-  // Categories not listed here fall back to the generic #fieldTitle field.
   const PRIMARY_FIELD_ID = {
     [CATEGORY.SCI_PR]: "fieldPubTitle",
     [CATEGORY.SCI_NPR]: "fieldPubTitle",
@@ -35,6 +65,9 @@
     [CATEGORY.KNOWLEDGE]: "fieldKnowledgeArticleTitle",
     [CATEGORY.PUBLIC]: "fieldPublicTitle",
     [CATEGORY.COLLAB]: "fieldCollabGroup",
+    [CATEGORY.THIRD_PARTY]: "fieldThirdPartyOrg",
+    [CATEGORY.FOLLOW_UP]: "fieldFollowUpTitle",
+    [CATEGORY.AWARDS]: "fieldAwardTitle",
   };
 
   const COUNTRIES = [
@@ -84,21 +117,43 @@
     return div.innerHTML;
   }
 
+  const firstNonEmpty = (...values) =>
+    values.map((v) => (v == null ? "" : String(v).trim())).find(Boolean) || "";
+
+  // Website columns are standardised to Title / First Author / Source WP / Notes.
+  // When a field is empty for an entry, fall back to the closest related field.
+  function displayTitle(e) {
+    return firstNonEmpty(
+      e.Title, e.PubTitle, e.DatasetTitle, e.AcademicArticleTitle,
+      e.AcademicEventTitle, e.KnowledgeArticleTitle, e.KnowledgeEventTitle,
+      e.PublicTitle, e.CollabResearchGroup, e.ThirdPartyOrganisation,
+      e.FollowUpTitle, e.AwardTitle, e.Venue, e.Category
+    );
+  }
+
+  function displayFirstAuthor(e) {
+    return firstNonEmpty(
+      e.FirstAuthor, e.CoAuthors, e.AcademicPersonInvolved,
+      e.KnowledgePersonInvolved, e.AwardPersonInvolved, e.CollabResearchGroup,
+      e.ThirdPartyOrganisation, e.ThirdPartySource
+    );
+  }
+
+  function displayNotes(e) {
+    return firstNonEmpty(
+      e.Notes,
+      [e.Type, e.Venue, e.Date].map((v) => firstNonEmpty(v)).filter(Boolean).join(" · ")
+    );
+  }
+
   function renderRow(entry) {
     const tr = document.createElement("tr");
     tr.dataset.id = entry.ID;
     tr.innerHTML = `
-      <td>${escapeHtml(entry.Title)}</td>
-      <td>${escapeHtml(entry.Category)}</td>
-      <td>${escapeHtml(entry.Type)}</td>
-      <td>${escapeHtml(entry.FirstAuthor)}</td>
-      <td class="d-none d-lg-table-cell">${escapeHtml(entry.CoAuthors)}</td>
-      <td>${escapeHtml(entry.Venue)}</td>
-      <td>${escapeHtml(entry.Status)}</td>
-      <td>${escapeHtml(entry.Date)}</td>
-      <td>${entry.Link ? `<a href="${escapeHtml(entry.Link)}" target="_blank" rel="noopener">Link</a>` : ""}</td>
-      <td class="d-none d-lg-table-cell">${escapeHtml(entry.SourceWP)}</td>
-      <td class="d-none d-lg-table-cell">${escapeHtml(entry.Notes)}</td>
+      <td>${escapeHtml(displayTitle(entry))}</td>
+      <td>${escapeHtml(displayFirstAuthor(entry))}</td>
+      <td>${escapeHtml(entry.SourceWP)}</td>
+      <td>${escapeHtml(displayNotes(entry))}</td>
       <td><button type="button" class="btn btn-sm btn-outline-danger btn-delete-entry">Delete</button></td>
     `;
     return tr;
@@ -107,21 +162,21 @@
   async function loadEntries() {
     const tbody = select("#entriesTableBody");
     const status = select("#entriesStatus");
-    tbody.innerHTML = '<tr><td colspan="12">Loading...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5">Loading...</td></tr>';
     status.textContent = "";
     try {
       const res = await fetch(API_URL, { method: "GET" });
       const data = await res.json();
       tbody.innerHTML = "";
       if (!data.ok || !data.entries.length) {
-        tbody.innerHTML = '<tr><td colspan="12">No entries yet.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5">No entries yet.</td></tr>';
         return;
       }
       data.entries
         .sort((a, b) => new Date(b.Timestamp) - new Date(a.Timestamp))
         .forEach((entry) => tbody.appendChild(renderRow(entry)));
     } catch (err) {
-      tbody.innerHTML = '<tr><td colspan="12">Failed to load entries.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5">Failed to load entries.</td></tr>';
       status.textContent = "Could not reach the database. Please try again later.";
       console.error(err);
     }
@@ -184,9 +239,12 @@
     });
 
     const panel = select("#categoryDescriptionPanel");
-    const desc = CATEGORY_DESCRIPTIONS[category];
-    if (desc) {
-      panel.textContent = desc;
+    const categorySelect = select("#fieldCategory");
+    const selectedOption = categorySelect.selectedOptions[0];
+    const categoryName = selectedOption ? selectedOption.textContent.trim() : "";
+
+    if (category && categoryName) {
+      panel.textContent = categoryDescription(category, categoryName);
       panel.classList.remove("d-none");
     } else {
       panel.classList.add("d-none");
@@ -253,12 +311,12 @@
         AcademicDate: select("#fieldAcademicDate").value,
         AcademicCountry: select("#fieldAcademicCountry").value,
         AcademicPlace: select("#fieldAcademicPlace").value,
-        AcademicPersonInvolved: select("#fieldAcademicPerson").value,
+        AcademicPersonInvolved: checkedValues(".person-academic"),
         Title: select("#fieldAcademicArticleTitle").value,
         Venue: select("#fieldAcademicEventTitle").value,
         Type: select("#fieldAcademicContribution").value,
         Date: select("#fieldAcademicDate").value,
-        FirstAuthor: select("#fieldAcademicPerson").value,
+        FirstAuthor: checkedValues(".person-academic"),
       });
     } else if (category === CATEGORY.KNOWLEDGE) {
       Object.assign(payload, {
@@ -269,13 +327,13 @@
         KnowledgeDate: select("#fieldKnowledgeDate").value,
         KnowledgeCountry: select("#fieldKnowledgeCountry").value,
         KnowledgePlace: select("#fieldKnowledgePlace").value,
-        KnowledgePersonInvolved: select("#fieldKnowledgePerson").value,
+        KnowledgePersonInvolved: checkedValues(".person-knowledge"),
         KnowledgeTargetGroup: select("#fieldKnowledgeTargetGroup").value,
         Title: select("#fieldKnowledgeArticleTitle").value,
         Venue: select("#fieldKnowledgeEventTitle").value,
         Type: select("#fieldKnowledgeContribution").value,
         Date: select("#fieldKnowledgeDate").value,
-        FirstAuthor: select("#fieldKnowledgePerson").value,
+        FirstAuthor: checkedValues(".person-knowledge"),
       });
     } else if (category === CATEGORY.PUBLIC) {
       Object.assign(payload, {
@@ -297,19 +355,42 @@
         Type: "Collaboration",
         Status: select("#fieldCollabStarted").value,
       });
-    } else {
-      // Not-yet-specified categories: third-party funds, follow-up projects, awards.
-      Object.assign(payload, authorFields(), {
-        Title: select("#fieldTitle").value,
-        Venue: select("#fieldVenue").value,
-        Type: select("#fieldType").value,
-        Status: select("#fieldStatus").value,
-        Date: select("#fieldDate").value,
-        Link: select("#fieldLink").value,
+    } else if (category === CATEGORY.THIRD_PARTY) {
+      Object.assign(payload, {
+        ThirdPartySource: select("#fieldThirdPartySource").value,
+        ThirdPartyOrganisation: select("#fieldThirdPartyOrg").value,
+        ThirdPartyAmount: select("#fieldThirdPartyAmount").value,
+        ThirdPartyYear: select("#fieldThirdPartyYear").value,
+        Title: select("#fieldThirdPartyOrg").value,
+        Venue: select("#fieldThirdPartySource").value,
+        Type: "Third-party funds",
+        Date: select("#fieldThirdPartyYear").value,
+      });
+    } else if (category === CATEGORY.FOLLOW_UP) {
+      Object.assign(payload, {
+        FollowUpTitle: select("#fieldFollowUpTitle").value,
+        FollowUpStartYear: select("#fieldFollowUpStart").value,
+        FollowUpDurationMonths: select("#fieldFollowUpDuration").value,
+        FollowUpFinancing: select("#fieldFollowUpFinancing").value,
+        Title: select("#fieldFollowUpTitle").value,
+        Venue: select("#fieldFollowUpFinancing").value,
+        Type: "Follow-up project",
+        Date: select("#fieldFollowUpStart").value,
+      });
+    } else if (category === CATEGORY.AWARDS) {
+      Object.assign(payload, {
+        AwardTitle: select("#fieldAwardTitle").value,
+        AwardYear: select("#fieldAwardYear").value,
+        AwardEndowmentCHF: select("#fieldAwardEndowment").value,
+        AwardPersonInvolved: checkedValues(".person-award"),
+        Title: select("#fieldAwardTitle").value,
+        Type: "Award",
+        Date: select("#fieldAwardYear").value,
+        FirstAuthor: checkedValues(".person-award"),
       });
     }
 
-    payload.SourceWP = select("#fieldSourceWP").value;
+    payload.SourceWP = checkedValues(".source-wp");
     payload.Notes = select("#fieldNotes").value;
     return payload;
   }
@@ -319,7 +400,7 @@
       select("#entriesStatus").textContent =
         "This page is not yet connected to a database (missing Apps Script URL).";
       select("#entriesTableBody").innerHTML =
-        '<tr><td colspan="12">Not configured.</td></tr>';
+        '<tr><td colspan="5">Not configured.</td></tr>';
       return;
     }
 
@@ -351,7 +432,7 @@
       e.preventDefault();
 
       const category = categorySelect.value;
-      const primaryFieldId = PRIMARY_FIELD_ID[category] || "fieldTitle";
+      const primaryFieldId = PRIMARY_FIELD_ID[category];
       if (!select("#" + primaryFieldId).value.trim()) {
         alert("Please fill in the required title field for this category.");
         return;

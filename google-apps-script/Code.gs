@@ -1,17 +1,19 @@
 /**
  * Backend for the "Research Output" public submission page.
- * Deploy this bound to a Google Sheet with a tab named `Entries` whose
- * header row (row 1) is exactly the HEADERS array below, in that order.
+ * Stores entries in the Google Sheet "Sinergia Research Output Entries"
+ * (SPREADSHEET_ID below), whose header row (row 1) is exactly the HEADERS
+ * array below, in that order. Works as a standalone or bound script.
  *
  * Deploy > New deployment > Web app > Execute as: Me, Who has access: Anyone.
  * Copy the resulting /exec URL into assets/js/research-output.js (API_URL).
  */
 
-const SHEET_NAME = 'Entries';
+const SPREADSHEET_ID = '16LFfwIjK_BXPFc1ZfVsrEVRXGxY7bRBmtLUE73sHnf0';
+const SHEET_NAME = 'Entries'; // falls back to the first tab if not found
 const HEADERS = [
   'ID', 'Timestamp', 'Category',
   // Generic / display columns, also used by the not-yet-specified categories
-  // (third-party funds, follow-up projects, awards).
+  // (kept for older rows; new categories fill Title/Venue/Type/Date too).
   'Title', 'FirstAuthor', 'CoAuthors', 'Venue', 'Type', 'Status', 'Date', 'Link',
   // Scientific publication (peer-reviewed / not peer-reviewed).
   'PubFormOfPublication', 'PubTitle', 'PubJournalName', 'PubPageOrArticleNumber',
@@ -32,10 +34,19 @@ const HEADERS = [
   'CollabResearchGroup', 'CollabCountry', 'CollabType', 'CollabStarted',
   // Shared across all categories.
   'SourceWP', 'Notes', 'Deleted',
+  // Added later, appended after 'Deleted' so existing sheet rows keep their
+  // column positions. Add these headers to row 1 of the sheet, in this order.
+  // Third-party funds.
+  'ThirdPartySource', 'ThirdPartyOrganisation', 'ThirdPartyAmount', 'ThirdPartyYear',
+  // Follow-up projects.
+  'FollowUpTitle', 'FollowUpStartYear', 'FollowUpDurationMonths', 'FollowUpFinancing',
+  // Awards.
+  'AwardTitle', 'AwardYear', 'AwardEndowmentCHF', 'AwardPersonInvolved',
 ];
 
 function getSheet_() {
-  return SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  return ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
 }
 
 function jsonResponse_(obj) {
@@ -79,7 +90,7 @@ function handleAdd_(body) {
     if (h === 'ID') return id;
     if (h === 'Timestamp') return new Date().toISOString();
     if (h === 'Deleted') return false;
-    return body[h] || '';
+    return body[h] == null ? '' : body[h];
   });
 
   sheet.appendRow(row);
